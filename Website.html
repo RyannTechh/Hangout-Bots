@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangout Bots</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a sleek black and white theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a; /* Dark background */
+            color: #f0f0f0; /* Light text */
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling for internal links */
+        }
+        .header-bg {
+            background-color: #0d0d0d; /* Even darker header */
+        }
+        .card-bg {
+            background-color: #2a2a2a; /* Slightly lighter card background */
+        }
+        .btn-primary {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #cccccc;
+            color: #000000;
+        }
+        .btn-secondary {
+            background-color: #333333;
+            color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #555555;
+        }
+        .footer-bg {
+            background-color: #0d0d0d;
+        }
+        /* Page switching animation */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Ensure images scale correctly */
+        .bot-logo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem; /* Rounded corners for images */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header-bg shadow-lg py-4 px-6 fixed top-0 left-0 w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">Hangout Bots</h1>
+            <div class="flex items-center space-x-4">
+                <button onclick="showPage('home')" class="btn-secondary px-4 py-2 rounded-lg text-lg font-medium">Home</button>
+                <button onclick="showPage('bots')" class="btn-secondary px-4 py-2 rounded-lg text-lg font-medium">Our Bots</button>
+                <button onclick="showPage('support')" class="btn-secondary px-4 py-2 rounded-lg text-lg font-medium">Support</button>
+                <a href="https://discord.gg/5Dnzb9qEVV" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-lg text-lg font-bold shadow-md">
+                    Join Our Discord
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="home" class="page active pt-24 pb-12 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl font-extrabold mb-6 leading-tight">Welcome to <span class="text-white">Hangout Bots</span></h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                Discover powerful and reliable Discord bots designed to enhance your server experience. From moderation to music, we've got you covered.
+            </p>
+            <button onclick="showPage('bots')" class="btn-primary px-8 py-4 rounded-xl text-xl font-bold shadow-lg transform hover:scale-105 transition duration-300">
+                Explore Our Bots
+            </button>
+        </div>
+    </main>
+
+    <section id="bots" class="page pt-24 pb-12 min-h-screen">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Featured Bots</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="card-bg p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                    <img src="https://cdn.discordapp.com/attachments/1343788398380322908/1377016144950595684/Hangout_Safekeeper_Logo.png?ex=68376db8&is=68361c38&hm=b04f30af9736d441b917e40b2c18b3984504e1b233925f32283a9df6ecb3733a&" alt="Hangout Safekeeper Logo" class="bot-logo w-48 h-48 object-contain mb-6">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Hangout Safekeeper</h3>
+                    <p class="text-gray-300 mb-6">
+                        Your ultimate guardian for Discord servers. Hangout Safekeeper provides advanced moderation tools,
+                        anti-raid features, and comprehensive logging to ensure a safe and secure environment for your community.
+                        Protect and serve with confidence.
+                    </p>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1371891606654947368" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+                        Add Safekeeper to Discord
+                    </a>
+                </div>
+
+                <div class="card-bg p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                    <img src="https://cdn.discordapp.com/attachments/1343788398380322908/1377016126931992626/Hangout_Music.jpg?ex=68376db4&is=68361c34&hm=2439f89c7501fc6ac37f017a09d7dc82644c07c92763ce5f4e2756d8f9003a16&" alt="Hangout Music Logo" class="bot-logo w-48 h-48 object-contain mb-6">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Hangout Music</h3>
+                    <p class="text-gray-300 mb-6">
+                        Bring the party to your Discord voice channels with Hangout Music. Enjoy high-quality audio playback,
+                        seamless queue management, and support for various streaming platforms. Play your favorite tunes effortlessly.
+                    </p>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1376562637076430948" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 rounded-lg font-semibold">
+                        Add Music to Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="support" class="page pt-24 pb-12 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-white">Contact Support</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                For any inquiries, technical assistance, or general questions, please do not hesitate to reach out to our dedicated support team.
+                We aim to respond to all queries within 24-48 hours.
+            </p>
+            <p class="text-2xl font-semibold text-white mb-8">
+                Email us at:
+                <a href="mailto:ryanntechh@gmail.com" class="text-white hover:underline block mt-2">ryanntechh@gmail.com</a>
+            </p>
+            <p class="text-lg text-gray-400">
+                You can also join our Discord server for community support and direct assistance.
+            </p>
+            <a href="https://discord.gg/5Dnzb9qEVV" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-4 rounded-xl text-xl font-bold shadow-lg transform hover:scale-105 transition duration-300 mt-8 inline-block">
+                Join Our Discord for Support
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer-bg py-8 mt-12 text-center text-gray-400">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2025 Hangout Bots. All rights reserved.</p>
+            <p class="mt-2">
+                For support, email us at
+                <a href="mailto:ryanntechh@gmail.com" class="text-white hover:underline">ryanntechh@gmail.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to switch between pages
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // Initialize the first page to be active on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home'); // Ensure home page is active by default
+            document.querySelectorAll('img').forEach(img => {
+                img.onerror = function() {
+                    this.onerror = null; // Prevent infinite loop
+                    this.src = 'https://placehold.co/192x192/333333/FFFFFF?text=Image+Error'; // Generic placeholder
+                    this.alt = 'Image not found';
+                };
+            });
+        });
+    </script>
+</body>
+</html>
